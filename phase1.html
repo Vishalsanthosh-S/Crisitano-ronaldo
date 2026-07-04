@@ -32,7 +32,7 @@
             font-family: 'Cinzel', serif;
             background: #f1c40f; /* Yellow Block */
             border: 2px solid #f1c40f;
-            color: #000;         /* Black Text */
+            color: #000;       /* Black Text */
             padding: 12px 30px;
             text-transform: uppercase;
             font-weight: bold;
@@ -184,6 +184,18 @@
         @keyframes shatterTitle { from { opacity: 0; transform: translate3d(50px, -50px, 300px) skewX(-10deg); } to { opacity: 1; transform: translate3d(0, 0, 0) skewX(-4deg) rotate(-1deg); } }
         @keyframes shatterText { from { opacity: 0; transform: translate3d(100px, 30px, -200px); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
         @keyframes assembleButtons { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- MOBILE RESPONSIVENESS (ADDED) --- */
+        @media (max-width: 768px) {
+            body { overflow-y: auto !important; align-items: flex-start !important; }
+            .content-overlap-wrapper { flex-direction: column !important; height: auto !important; padding-top: 50px !important; }
+            .image-column-left { height: 250px !important; }
+            .text-column-right { padding: 20px !important; align-items: center !important; text-align: center !important; }
+            .karuppu-style-header { font-size: 3rem !important; }
+            .elegant-narrative-text { font-size: 1rem !important; max-width: 90% !important; }
+            .navigation-row { flex-direction: column !important; width: 100% !important; }
+            .action-control-btn { width: 100% !important; text-align: center !important; }
+        }
     </style>
 </head>
 <body>
@@ -228,3 +240,4 @@
 
 </body>
 </html>
+    }
