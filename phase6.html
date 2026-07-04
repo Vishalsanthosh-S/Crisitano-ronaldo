@@ -21,7 +21,7 @@
             font-family: 'Cinzel', serif;
             background: #003366; /* Royal Blue */
             border: 2px solid #ffffff;
-            color: #ffffff;      /* White Text */
+            color: #ffffff;       /* White Text */
             padding: 12px 30px;
             text-transform: uppercase;
             font-weight: bold;
@@ -40,7 +40,7 @@
 
         /* Pure black background with a subtle gradient hint */
         .full-screen-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                url('https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/61f9/live/e3510710-5557-11f1-b427-e5f9d829c03e.jpg') no-repeat center center/cover; z-index: 1; }
+                    url('https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/61f9/live/e3510710-5557-11f1-b427-e5f9d829c03e.jpg') no-repeat center center/cover; z-index: 1; }
 
         .content-side-by-side {
             position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; width: 85%; max-width: 1000px;
@@ -90,6 +90,24 @@
             cursor: pointer; text-decoration: none; transition: all 0.4s ease;
         }
         .action-control-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px #d4af37; }
+
+        /* --- MOBILE RESPONSIVENESS (ADDED) --- */
+        @media (max-width: 768px) {
+            body { overflow-y: auto !important; }
+            .content-side-by-side { 
+                flex-direction: column !important; 
+                width: 90% !important; 
+                margin-top: 80px !important; 
+                margin-bottom: 50px !important;
+            }
+            .text-section { width: 100% !important; text-align: center !important; }
+            .karuppu-style-header { font-size: 3rem !important; }
+            .elegant-narrative-text { font-size: 1.1rem !important; margin-top: 15px !important; padding-left: 10px !important; }
+            .image-section { width: 100% !important; justify-content: center !important; margin-top: 20px !important; }
+            .foreground-cutout { height: 40vh !important; max-height: 350px !important; }
+            .navigation-row { flex-direction: column !important; gap: 10px !important; }
+            .action-control-btn { width: 100% !important; text-align: center !important; padding: 15px !important; }
+        }
     </style>
 </head>
 <body>
