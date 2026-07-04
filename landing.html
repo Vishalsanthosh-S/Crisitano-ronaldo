@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading...</title>
+    <style>
+        body { background-color: #050505; }
+    </style>
+</head>
+<body>
+    <script>
+        // Check if this is the user's first window view session
+        if (!sessionStorage.getItem('visitedBefore')) {
+            // First time loading: Set the flag and boot directly to menu
+            sessionStorage.setItem('visitedBefore', 'true');
+            window.location.replace('menu.html');
+        } else {
+            // Second time loading/returning: Route them directly to index
+            window.location.replace('index.html');
+        }
+    </script>
+</body>
+</html>
