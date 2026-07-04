@@ -53,7 +53,7 @@
         }
 
         .whip-exit-content { transform: translate3d(-100vw, 0, 0) scale(0.8); filter: blur(20px); opacity: 0; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .whip-exit-bg { transform: scale(1.2); opacity: 0; }
+        .whip-exit-bg { transform: scale(1.2); opacity: 0; transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out; }
 
         @keyframes editWhipInBg { 0% { transform: scale(1.1); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
         @keyframes editWhipInContent { 0% { transform: translate3d(-600px, 0, 0) scale(1.2); opacity: 0; } 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; } }
@@ -76,7 +76,6 @@
 
     <div class="full-screen-bg" id="bgLayer"></div>
 
-    <!-- MENU BUTTON -->
     <div class="menu-top-right">
         <a class="red-master-btn" href="menu.html">MENU</a>
     </div>
@@ -104,15 +103,20 @@
     </div>
 
     <script>
-        // Updated selector to include .red-master-btn
         document.querySelectorAll('.action-control-btn, .red-master-btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const content = document.getElementById('contentWrapper');
                 const bg = document.getElementById('bgLayer');
+                
+                // Add the exit classes
                 content.classList.add('whip-exit-content');
                 bg.classList.add('whip-exit-bg');
-                setTimeout(() => { window.location.href = this.getAttribute('href'); }, 600);
+                
+                // Navigate after the animation completes (600ms)
+                setTimeout(() => { 
+                    window.location.href = this.getAttribute('href'); 
+                }, 600);
             });
         });
     </script>
