@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Importing Ink Brush Font -->
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
@@ -71,12 +70,12 @@
     </div>
 
     <script>
-        // Smooth search filtering
+        // Smooth search filtering (fixed to use inline-block so it doesn't break flex)
         document.getElementById('search').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase();
             const links = document.querySelectorAll('.nav-btn');
             links.forEach(link => {
-                link.style.display = (query === "" || link.textContent.toLowerCase().includes(query)) ? 'block' : 'none';
+                link.style.display = (query === "" || link.textContent.toLowerCase().includes(query)) ? 'inline-block' : 'none';
             });
         });
 
