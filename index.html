@@ -3,6 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+    // If they haven't visited the menu yet this session, send them there instantly
+    if (!sessionStorage.getItem('menuLoaded')) {
+        sessionStorage.setItem('menuLoaded', 'true');
+        window.location.replace('menu.html');
+    }
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
