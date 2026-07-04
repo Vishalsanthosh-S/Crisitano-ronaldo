@@ -216,13 +216,21 @@
     </div>
 
     <script>
-        document.getElementById('nextPhaseBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('bgLayer').classList.add('whip-exit-bg');
-            document.getElementById('contentWrapper').classList.add('whip-exit-content');
-            setTimeout(() => {
-                window.location.href = this.href;
-            }, 380);
+        // Selects EVERY link on the page (Menu, Home, and Sporting CP)
+        document.querySelectorAll('.master-btn, .action-control-btn').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const destination = this.href;
+                
+                // Triggers your custom whip animations across the elements
+                document.getElementById('bgLayer').classList.add('whip-exit-bg');
+                document.getElementById('contentWrapper').classList.add('whip-exit-content');
+                
+                // Delays navigation safely until the 380ms whip effect completes
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 380);
+            });
         });
     </script>
 
