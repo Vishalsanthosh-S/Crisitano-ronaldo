@@ -47,7 +47,7 @@
 </head>
 <body>
     <div class="header" id="nav-header">
-        <a href="index.html" class="nav-btn">JOURNEY</a>
+        <a href="menu.html" class="nav-btn">JOURNEY</a>
         <a href="phase1.html" class="nav-btn">ROOTS</a>
         <a href="phase2.html" class="nav-btn">SPORTING</a>
         <a href="phase3.html" class="nav-btn">UNITED</a>
@@ -70,7 +70,7 @@
     </div>
 
     <script>
-        // Smooth search filtering (fixed to use inline-block so it doesn't break flex)
+        // Smooth search filtering (uses inline-block to preserve flex header architecture)
         document.getElementById('search').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase();
             const links = document.querySelectorAll('.nav-btn');
