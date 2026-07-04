@@ -9,14 +9,14 @@
 </head>
 <body>
     <script>
-        // Check if this is the user's first window view session
+        // Check if this is the user's first time visiting in this session
         if (!sessionStorage.getItem('visitedBefore')) {
-            // First time loading: Set the flag and boot directly to menu
+            // 1st view: Mark as visited, then load the menu file
             sessionStorage.setItem('visitedBefore', 'true');
-            window.location.replace('menu.html');
+            window.location.replace('main-menu.html');
         } else {
-            // Second time loading/returning: Route them directly to index
-            window.location.replace('index.html');
+            // 2nd view: They've been here, load the index content (now home.html)
+            window.location.replace('home.html');
         }
     </script>
 </body>
