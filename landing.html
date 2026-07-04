@@ -13,10 +13,10 @@
         if (!sessionStorage.getItem('visitedBefore')) {
             // 1st view: Mark as visited, then load the menu file
             sessionStorage.setItem('visitedBefore', 'true');
-            window.location.replace('main-menu.html');
+            window.location.replace('menu.html');
         } else {
             // 2nd view: They've been here, load the index content (now home.html)
-            window.location.replace('home.html');
+            window.location.replace('index.html');
         }
     </script>
 </body>
