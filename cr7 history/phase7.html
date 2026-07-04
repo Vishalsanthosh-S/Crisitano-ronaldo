@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { 
+            margin: 0; height: 100vh; background: #000; 
+            display: flex; justify-content: center; align-items: center; 
+            font-family: 'Cinzel', serif; overflow: hidden;
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.cbc.ca/ais/1.2662130,1401732744000/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C1180%2C663%29%3B');
+            background-size: cover; background-position: center;
+        }
+
+        .content-box {
+            border: 2px solid #d4af37; padding: 40px; width: 85%; max-width: 800px;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            text-align: center; box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), inset 0 0 20px rgba(212, 175, 55, 0.2);
+            border-radius: 20px; animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+            to { box-shadow: 0 0 40px rgba(212, 175, 55, 0.5); }
+        }
+
+        .shatter { animation: shatterIn 1.5s ease-out forwards; }
+        @keyframes shatterIn {
+            0% { opacity: 0; transform: translateY(50px) scale(0.95); filter: blur(20px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
+        .icon-img { 
+            width: 120px; height: 120px; border-radius: 50%; 
+            border: 3px solid #d4af37; box-shadow: 0 0 20px #d4af37;
+            margin-bottom: 20px; transition: transform 0.5s;
+        }
+        .icon-img:hover { transform: scale(1.1) rotate(5deg); }
+
+        .header-text { 
+            color: #fff; font-size: 3.5rem; margin: 10px 0; letter-spacing: 5px;
+            text-shadow: 0 0 20px #d4af37, 0 0 40px #d4af37;
+        }
+        
+        .body-text { color: #fff; font-style: italic; line-height: 1.6; text-align: left; }
+        
+        .trophy-section { 
+            margin: 20px 0; padding: 15px; border-top: 2px solid #d4af37; 
+            border-bottom: 2px solid #d4af37; color: #d4af37; font-weight: bold;
+            text-transform: uppercase; letter-spacing: 2px; background: rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-row { margin-top: 30px; }
+        .btn { 
+            border: 2px solid #d4af37; color: #d4af37; padding: 10px 30px; 
+            text-decoration: none; margin: 0 10px; font-weight: bold; transition: 0.4s;
+            text-transform: uppercase;
+        }
+        .btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px #d4af37; }
+    </style>
+</head>
+<body>
+
+    <div class="content-box shatter">
+        <img src="https://cdnb.artstation.com/p/assets/images/images/038/964/511/large/andrer-art-ronaldo-edit-gameday-hq.jpg?1624553393" class="icon-img" alt="Icon">
+        <h2 class="header-text">ICON</h2>
+        
+        <div class="trophy-section">
+            Major Trophies: Euro 2016, UEFA Nations League (2019)
+        </div>
+
+        <p class="body-text">
+            <b>The One-Man Army:</b><br>
+            • Carrying the Nation: Often faced with limited squad depth, Ronaldo acted as a one-man army, single-handedly dragging Portugal through qualifiers and tournament stages through sheer force of will.<br>
+            • Resilience: He remained the heartbeat of a side that often relied entirely on his individual brilliance to overcome world-class opponents.<br><br>
+
+            <b>Iconic Hat-tricks:</b><br>
+            • Sweden (2013): A heroic hat-trick in the World Cup play-offs secured Portugal's spot in the tournament.<br>
+            • Spain (2018): An incredible hat-trick, capped by a late free-kick, forced a 3-3 draw in the World Cup group stage.<br><br>
+            
+            <b>Unprecedented Longevity:</b><br>
+            He became the only player to score in six different World Cups. His 2026 World Cup campaign featured his first-ever knockout stage goal, helping Portugal defeat Croatia in the Round of 32. Through his tireless discipline, he transformed Portugal from underdogs into a consistent global powerhouse.
+        </p>
+
+        <div class="btn-row">
+            <a href="phase6.html" class="btn">BACK</a>
+            <a href="phase8.html" class="btn">END</a>
+        </div>
+    </div>
+
+</body>
+</html>
