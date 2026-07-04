@@ -105,7 +105,7 @@
             .elegant-narrative-text { font-size: 1.1rem !important; margin-top: 15px !important; padding-left: 10px !important; }
             .image-section { 
                 width: 100% !important; 
-                justify-content: flex-end !important; /* Updated to align right */
+                display: flex !important; 
                 margin-top: 20px !important; 
             }
             .foreground-cutout { 
@@ -113,6 +113,8 @@
                 max-height: 250px !important; 
                 width: auto !important; 
                 object-fit: contain !important; 
+                margin-left: auto !important; /* Force to right side */
+                margin-right: 0 !important;   /* Reset right margin */
             }
             .navigation-row { flex-direction: column !important; gap: 10px !important; }
             .action-control-btn { width: 100% !important; text-align: center !important; padding: 15px !important; }
