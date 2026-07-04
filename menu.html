@@ -1,150 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CR7 Journey - Menu Hub</title>
+    <!-- Importing Ink Brush Font -->
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
 
-        body, html {
-            margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000000;
-            font-family: 'Cinzel', serif; color: #ffffff; overflow-x: hidden;
-        }
-
-        /* Ambient Background */
-        .menu-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.85)), 
-                        url('https://i.pinimg.com/736x/79/99/e4/7999e451d14423145f36e3b084cefcaf.jpg') no-repeat center center/cover;
-            z-index: -1;
-            animation: expandBg 2s ease-out forwards;
-        }
-
-        /* Layout Container */
-        .menu-container {
-            max-width: 1200px; margin: 0 auto; padding: 60px 20px;
-            display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box;
-        }
-
-        /* Header Layout */
-        .menu-header { text-align: center; margin-bottom: 50px; animation: dropHeader 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .menu-header h1 { font-size: 3rem; color: #f1c40f; margin: 0 0 10px 0; letter-spacing: 4px; text-shadow: 0 0 20px rgba(241, 196, 15, 0.3); }
-        .menu-header p { font-family: 'Playfair Display', serif; font-style: italic; color: #cccccc; font-size: 1.1rem; margin: 0; }
-
-        /* Grid Architecture */
-        .menu-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; width: 100%; margin-bottom: 50px;
-            animation: fadeGridUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; opacity: 0;
-        }
-
-        @media (max-width: 1024px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .menu-grid { grid-template-columns: repeat(1, 1fr); } }
-
-        /* Phase Cards */
-        .menu-card {
-            background: rgba(15, 15, 15, 0.6); backdrop-filter: blur(10px);
-            border: 1px solid rgba(241, 196, 15, 0.3); padding: 35px 25px; text-align: center;
-            text-decoration: none; color: #ffffff; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            height: 180px; box-sizing: border-box; overflow: hidden; cursor: pointer;
+        body { 
+            margin: 0; height: 100vh; overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                        url('https://i.pinimg.com/736x/79/99/e4/7999e451d14423145f36e3b084cefcaf.jpg') no-repeat center center/cover; 
+            font-family: 'Cinzel', serif; color: #fff; display: flex; flex-direction: column;
+            /* Entrance Animation */
+            animation: flashEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
-        .menu-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(241, 196, 15, 0.05), transparent);
-            transform: translateX(-100%); transition: transform 0.6s ease;
+        @keyframes flashEntrance {
+            0% { opacity: 0; filter: blur(20px) brightness(5); transform: scale(1.1); }
+            100% { opacity: 1; filter: blur(0px) brightness(1); transform: scale(1); }
         }
 
-        .menu-card:hover::before { transform: translateX(100%); }
+        .header { display: flex; justify-content: center; padding: 20px; gap: 10px; border-bottom: 2px solid #d4af37; background: rgba(0,0,0,0.5); }
+        .nav-btn { color: #d4af37; text-decoration: none; padding: 8px 16px; border: 1px solid #d4af37; text-transform: uppercase; font-size: 0.7rem; transition: 0.3s; }
+        .nav-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 15px #d4af37; }
 
-        .menu-card:hover {
-            border-color: #f1c40f; background: rgba(20, 20, 20, 0.8);
-            transform: translateY(-5px); box-shadow: 0 10px 30px rgba(241, 196, 15, 0.15);
+        .main-content { display: flex; flex: 1; padding: 50px; gap: 50px; align-items: center; }
+        .left-panel { flex: 2; }
+        
+        /* Ink Brush Font Applied Here */
+        h1 { font-family: 'ZCOOL KuaiLe', cursive; font-size: 5rem; margin: 0; text-shadow: 0 0 20px #d4af37; letter-spacing: 5px; }
+
+        /* Functional Search Bar */
+        .search-bar { width: 60%; padding: 15px; background: rgba(0,0,0,0.8); border: 2px solid #d4af37; color: #fff; font-size: 1.2rem; }
+        
+        .right-panel { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+        .display-img { 
+            width: 100%; height: 350px; border: 2px solid #d4af37; 
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTszHo5YIakFyVmJSW0PED0_3ZjYUugfDeA1-whOSynLQ&s=10') no-repeat center center/cover;
+            transition: transform 0.5s;
         }
-
-        .phase-number { font-size: 0.8rem; color: #f1c40f; opacity: 0.7; margin-bottom: 15px; letter-spacing: 2px; }
-        .phase-title { font-size: 1.25rem; font-weight: 700; letter-spacing: 2px; margin: 0; text-transform: uppercase; }
-
-        /* Return Control Button */
-        .return-btn {
-            font-family: 'Cinzel', serif; background: transparent; border: 1px solid #f1c40f; color: #f1c40f;
-            padding: 12px 40px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;
-            cursor: pointer; text-decoration: none; transition: all 0.3s ease; margin-top: auto;
-            animation: fadeGridUp 1s ease-out 0.5s forwards; opacity: 0;
-        }
-        .return-btn:hover { background: #f1c40f; color: #000000; box-shadow: 0 0 25px rgba(241, 196, 15, 0.3); }
-
-        /* Structural Global Animation Triggers */
-        .exit-fade { opacity: 0 !important; transform: translateY(-20px) scale(0.98); transition: all 0.5s ease !important; }
-
-        @keyframes expandBg { from { transform: scale(1.05); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        @keyframes dropHeader { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeGridUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .display-img:hover { transform: scale(1.02); }
+        
+        .walk-btn { padding: 20px; background: #d4af37; color: #000; text-align: center; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .walk-btn:hover { background: #fff; box-shadow: 0 0 30px #fff; }
     </style>
 </head>
 <body>
+    <div class="header" id="nav-header">
+        <a href="index.html" class="nav-btn">JOURNEY</a>
+        <a href="phase1.html" class="nav-btn">ROOTS</a>
+        <a href="phase2.html" class="nav-btn">SPORTING</a>
+        <a href="phase3.html" class="nav-btn">UNITED</a>
+        <a href="phase4.html" class="nav-btn">MADRID</a>
+        <a href="phase5.html" class="nav-btn">JUVENTUS</a>
+        <a href="phase6.html" class="nav-btn">AL NASSR</a>
+        <a href="phase7.html" class="nav-btn">PORTUGAL</a>
+          <a href="phase8.html" class="nav-btn">CAREER STATS</a>
+    </div>
 
-    <div class="menu-bg"></div>
-
-    <div class="menu-container">
-        <header class="menu-header">
-            <h1>CHOOSE YOUR PATH</h1>
-            <p>Chronological Hub of the Greatest Career Ever Assembled</p>
-        </header>
-
-        <nav class="menu-grid">
-            <a href="phase1.html" class="menu-card nav-link">
-                <span class="phase-number">PHASE 01</span>
-                <h3 class="phase-title">Roots</h3>
-            </a>
-            <a href="phase2.html" class="menu-card nav-link">
-                <span class="phase-number">PHASE 02</span>
-                <h3 class="phase-title">Sporting</h3>
-            </a>
-            <a href="phase3.html" class="menu-card nav-link">
-                <span class="phase-number">PHASE 03</span>
-                <h3 class="phase-title">United</h3>
-            </a>
-            <a href="phase4.html" class="menu-card nav-link">
-                <span class="phase-number">PHASE 04</span>
-                <h3 class="phase-title">Madrid</h3>
-            </a>
-            <a href="phase5.html" class="menu-card nav-link">
-                <span class="phase-number">PHASE 05</span>
-                <h3 class="phase-title">Juventus</h3>
-            </a>
-            <a href="phase6.html" class="menu-card nav-link">
-                <span class="phase-number">PHASE 06</span>
-                <h3 class="phase-title">Al Nassr</h3>
-            </a>
-            <a href="phase7.html" class="menu-card nav-link">
-                <span class="phase-number">PHASE 07</span>
-                <h3 class="phase-title">Portugal</h3>
-            </a>
-            <a href="phase8.html" class="menu-card nav-link">
-                <span class="phase-number">PHASE 08</span>
-                <h3 class="phase-title">Career Stats</h3>
-            </a>
-        </nav>
-
-        <!-- Links back to index.html to maintain systemic structural logic -->
-        <a href="index.html" class="return-btn nav-link">← Return to Screen</a>
+    <div class="main-content">
+        <div class="left-panel">
+            <h1>CRISTIANO RONALDO</h1>
+            <input type="text" id="search" class="search-bar" placeholder="Search phases (e.g. 'Madrid')...">
+        </div>
+        <div class="right-panel">
+            <div class="display-img"></div>
+            <a href="phase1.html" class="walk-btn">BEGIN WALKTHROUGH</a>
+        </div>
     </div>
 
     <script>
-        // High-reliability navigation script matching exit-fade delay rules
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetUrl = this.getAttribute('href');
-                
-                // Triggers structural exit transition across the main view container
-                document.querySelector('.menu-container').classList.add('exit-fade');
-                
-                setTimeout(() => {
-                    window.location.href = targetUrl;
-                }, 500);
+        document.getElementById('search').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const links = document.querySelectorAll('.nav-btn');
+            links.forEach(link => {
+                // Lenient filter: if empty, show all; otherwise show matches
+                if (query === "" || link.textContent.toLowerCase().includes(query)) {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
             });
         });
     </script>
