@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Phase 2 - Sporting CP Journey </title>
+    <title>Phase 2 - Sporting CP Journey</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@1,400&family=Road+Rage&display=swap');
 
@@ -24,13 +24,13 @@
         }
         .green-master-btn:hover { background: #000; color: #00d668; border-color: #00d668; box-shadow: 0 0 25px rgba(0, 214, 104, 0.8); }
 
-        /* VIDEO BACKGROUND LAYER (UPDATED FOR BORDERED FRAME) */
+        /* VIDEO BACKGROUND LAYER - FULLY FILLED */
         .full-screen-bg {
             position: absolute; 
             top: 5%; left: 5%; 
             width: 90%; height: 90%;
             z-index: 1; overflow: hidden;
-            border: 4px solid rgba(0, 214, 104, 0.3); /* The Frame */
+            border: 4px solid rgba(0, 214, 104, 0.3);
             border-radius: 20px;
             background: #000;
             animation: editWhipInBg 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -38,11 +38,11 @@
         }
         .full-screen-bg video { 
             width: 100%; height: 100%; 
-            object-fit: contain; /* Prevents stretching/cropping */
+            object-fit: cover; /* Forces video to fill the entire box */
         }
         .video-dark-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7); /* Darker overlay for text readability */
+            background: rgba(0, 0, 0, 0.6); 
             z-index: 2; pointer-events: none;
         }
 
