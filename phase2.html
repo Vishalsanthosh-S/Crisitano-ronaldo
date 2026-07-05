@@ -24,30 +24,56 @@
         }
         .green-master-btn:hover { background: #000; color: #00d668; border-color: #00d668; box-shadow: 0 0 25px rgba(0, 214, 104, 0.8); }
 
-        /* FULL SCREEN VIDEO BACKGROUND */
+        /* INCREASED & GLOWING BACKGROUND BORDER FRAME */
         .full-screen-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; overflow: hidden; background: #000;
+            position: absolute; 
+            top: 3%; left: 3%; 
+            width: 94%; height: 94%;
+            z-index: 1; overflow: hidden;
+            /* Thicker neon border with an intense glow effect */
+            border: 4px solid #00d668; 
+            box-shadow: 0 0 25px rgba(0, 214, 104, 0.5), inset 0 0 20px rgba(0, 214, 104, 0.2);
+            border-radius: 16px;
+            background: #000;
+            animation: editWhipInBg 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out;
         }
         .full-screen-bg video { 
             width: 100%; height: 100%; object-fit: cover; 
         }
         
-        /* HORIZONTAL GRADIENT OVERLAY (LIKE SCREENSHOT 2026-07-05 170700.JPG) */
+        /* MOODY GRADIENT OVERLAY */
         .video-dark-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.2) 100%);
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.3) 100%);
             z-index: 2; pointer-events: none;
         }
 
+        /* WATERMARK LOGO POSITIONED AT THE BOTTOM LEFT */
+        .logo-left-bottom {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            z-index: 2;
+            opacity: 0.18; /* Low opacity watermark look from Screenshot 2026-07-05 170700.jpg */
+            max-width: 280px;
+            pointer-events: none;
+            user-select: none;
+        }
+        .logo-left-bottom img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* CONTENT WRAPPER */
         .content-overlap-wrapper {
             position: relative; width: 90vw; max-width: 1200px; height: 85vh; 
             z-index: 3; display: flex; align-items: flex-end; 
             opacity: 1;
         }
 
-        .text-column-left { flex: 1.2; padding: 0 40px 60px 0; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; }
-        .image-column-right { flex: 1; display: flex; justify-content: center; align-items: flex-end; position: relative; height: 100%; }
+        .text-column-left { flex: 1.2; padding: 0 40px 60px 0; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; z-index: 4; }
+        .image-column-right { flex: 1; display: flex; justify-content: center; align-items: flex-end; position: relative; height: 100%; z-index: 4; }
         .foreground-cutout { height: 95%; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 0 15px rgba(0, 214, 104, 0.6)); }
 
         .karuppu-style-header { font-family: 'Road Rage', sans-serif; font-size: 5rem; color: #ffffff; letter-spacing: 2px; margin: 0 0 20px 0; text-transform: uppercase; text-shadow: 0px 0px 20px rgba(0, 214, 104, 0.5), 4px 4px 0px #000000; transform: skewX(-4deg) rotate(-1deg); display: inline-block; }
@@ -59,17 +85,25 @@
 </head>
 <body>
 
+    <!-- BOX FRAME WITH VIDEO BACKGROUND -->
     <div class="full-screen-bg" id="bgLayer">
         <video autoplay loop muted playsinline>
             <source src="CR7_WebsiteHighlights-Sporting_mobile.mp4" type="video/mp4">
         </video>
         <div class="video-dark-overlay"></div>
+        
+        <!-- Watermark Logo anchored to bottom left inside the frame -->
+        <div class="logo-left-bottom">
+            <img src="sporting-club-logo.png" alt="Sporting CP Crest">
+        </div>
     </div>
 
+    <!-- MENU TOP RIGHT -->
     <div class="menu-top-right">
         <a class="green-master-btn" href="menu.html">MENU</a>
     </div>
 
+    <!-- MAIN INTERFACE CONTENT -->
     <div class="content-overlap-wrapper" id="contentWrapper">
         <div class="text-column-left">
             <h2 class="karuppu-style-header">SPORTING CP ASCENT</h2>
