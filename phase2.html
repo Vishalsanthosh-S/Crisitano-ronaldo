@@ -24,47 +24,27 @@
         }
         .green-master-btn:hover { background: #000; color: #00d668; border-color: #00d668; box-shadow: 0 0 25px rgba(0, 214, 104, 0.8); }
 
-        /* VIDEO BACKGROUND LAYER - FULLY FILLED */
+        /* FULL SCREEN VIDEO BACKGROUND */
         .full-screen-bg {
-            position: absolute; 
-            top: 5%; left: 5%; 
-            width: 90%; height: 90%;
-            z-index: 1; overflow: hidden;
-            border: 4px solid rgba(0, 214, 104, 0.3);
-            border-radius: 20px;
-            background: #000;
-            animation: editWhipInBg 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; overflow: hidden; background: #000;
         }
         .full-screen-bg video { 
-            width: 100%; height: 100%; 
-            object-fit: cover; /* Forces video to fill the entire box */
+            width: 100%; height: 100%; object-fit: cover; 
         }
+        
+        /* HORIZONTAL GRADIENT OVERLAY (LIKE SCREENSHOT 2026-07-05 170700.JPG) */
         .video-dark-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); 
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.2) 100%);
             z-index: 2; pointer-events: none;
         }
 
         .content-overlap-wrapper {
             position: relative; width: 90vw; max-width: 1200px; height: 85vh; 
             z-index: 3; display: flex; align-items: flex-end; 
-            opacity: 1; transform: translate3d(0, 0, 0); will-change: transform, opacity;
-            animation: editWhipInContent 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease-out;
+            opacity: 1;
         }
-
-        @keyframes editWhipInBg {
-            0% { transform: scale(1.1); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes editWhipInContent {
-            0% { transform: translate3d(600px, 0, 0) skewX(8deg); opacity: 0; }
-            100% { transform: translate3d(0, 0, 0) skewX(0deg); opacity: 1; }
-        }
-
-        .full-screen-bg.whip-back-bg { transform: scale(1.1); opacity: 0; }
-        .content-overlap-wrapper.whip-back-content { transform: translate3d(600px, 0, 0) skewX(-8deg); opacity: 0; }
 
         .text-column-left { flex: 1.2; padding: 0 40px 60px 0; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; }
         .image-column-right { flex: 1; display: flex; justify-content: center; align-items: flex-end; position: relative; height: 100%; }
@@ -106,22 +86,5 @@
             <img class="foreground-cutout" src="images-removebg-preview (1).png" alt="Sporting CP Cutout">
         </div>
     </div>
-
-    <script>
-        const triggerExit = (targetUrl) => {
-            const bg = document.getElementById('bgLayer');
-            const content = document.getElementById('contentWrapper');
-            bg.style.animation = 'none'; content.style.animation = 'none';
-            bg.offsetHeight; content.offsetHeight;
-            bg.classList.add('whip-back-bg'); content.classList.add('whip-back-content');
-            setTimeout(() => { window.location.href = targetUrl; }, 450);
-        };
-        document.querySelectorAll('.action-control-btn, .green-master-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                triggerExit(this.getAttribute('href'));
-            });
-        });
-    </script>
 </body>
 </html>
