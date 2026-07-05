@@ -29,7 +29,7 @@
         }
         .green-master-btn:hover { background: #000; color: #00d668; border-color: #00d668; box-shadow: 0 0 25px rgba(0, 214, 104, 0.8); }
 
-        /* BOXED IMAGE BACKGROUND HOLDER */
+        /* REVERTED TO BOXED IMAGE BACKGROUND HOLDER */
         .full-screen-bg {
             position: absolute; 
             top: 5%; left: 5%; 
@@ -42,11 +42,10 @@
             transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out;
         }
         
-        /* Ensures image covers the frame */
-        .full-screen-bg img { 
+        .full-screen-bg video { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; 
+            object-fit: cover; /* Fills the box cleanly */
         }
         
         /* MOODY GRADIENT OVERLAY */
@@ -81,10 +80,11 @@
 </head>
 <body>
 
-    <!-- REVERTED BOXED FRAME WITH IMAGE -->
+    <!-- REVERTED BOXED FRAME -->
     <div class="full-screen-bg" id="bgLayer">
-        <!-- REPLACE 'YOUR_IMAGE_URL.jpg' WITH YOUR ACTUAL IMAGE FILE PATH -->
-        <img src="YOUR_IMAGE_URL.jpg" alt="Background">
+        <video autoplay loop muted playsinline>
+            <source src="CR7_WebsiteHighlights-Sporting_mobile.mp4" type="video/mp4">
+        </video>
         <div class="video-dark-overlay"></div>
     </div>
 
