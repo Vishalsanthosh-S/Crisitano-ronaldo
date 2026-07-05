@@ -24,18 +24,26 @@
         }
         .green-master-btn:hover { background: #000; color: #00d668; border-color: #00d668; box-shadow: 0 0 25px rgba(0, 214, 104, 0.8); }
 
-        /* VIDEO BACKGROUND LAYER */
+        /* VIDEO BACKGROUND LAYER (UPDATED FOR BORDERED FRAME) */
         .full-screen-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; 
+            top: 5%; left: 5%; 
+            width: 90%; height: 90%;
             z-index: 1; overflow: hidden;
+            border: 4px solid rgba(0, 214, 104, 0.3); /* The Frame */
+            border-radius: 20px;
+            background: #000;
             animation: editWhipInBg 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out;
         }
-        .full-screen-bg video { width: 100%; height: 100%; object-fit: cover; }
+        .full-screen-bg video { 
+            width: 100%; height: 100%; 
+            object-fit: contain; /* Prevents stretching/cropping */
+        }
         .video-dark-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0, 15, 5, 0.5), rgba(0, 0, 0, 0.85));
-            z-index: 2;
+            background: rgba(0, 0, 0, 0.7); /* Darker overlay for text readability */
+            z-index: 2; pointer-events: none;
         }
 
         .content-overlap-wrapper {
