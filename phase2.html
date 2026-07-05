@@ -13,7 +13,7 @@
             perspective: 1200px; -webkit-font-smoothing: antialiased;
         }
 
-        /* MENU BUTTON: TOP RIGHT CORNER */
+        /* MENU BUTTON: BACK TO TOP RIGHT CORNER */
         .menu-top-right { 
             position: absolute; 
             top: 30px; 
@@ -29,14 +29,15 @@
         }
         .green-master-btn:hover { background: #000; color: #00d668; border-color: #00d668; box-shadow: 0 0 25px rgba(0, 214, 104, 0.8); }
 
-        /* REVERTED TO BOXED IMAGE BACKGROUND HOLDER */
+        /* WIDE VIEW VIDEO CONTAINER WITH THIN BORDER */
         .full-screen-bg {
             position: absolute; 
-            top: 5%; left: 5%; 
-            width: 90%; height: 90%;
+            top: 2%; left: 2%; 
+            width: 96%; height: 96%; /* Expanded wide frame to maximize video visibility */
             z-index: 1; overflow: hidden;
-            border: 4px solid rgba(0, 214, 104, 0.3); 
-            border-radius: 20px;
+            border: 2px solid #00d668; /* Thin, clean neon border */
+            box-shadow: 0 0 15px rgba(0, 214, 104, 0.4); 
+            border-radius: 12px;
             background: #000;
             animation: editWhipInBg 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out;
@@ -45,19 +46,35 @@
         .full-screen-bg video { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; /* Fills the box cleanly */
+            object-fit: cover; /* Keeps video filling the wide frame fully */
         }
         
         /* MOODY GRADIENT OVERLAY */
         .video-dark-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.2) 100%);
             z-index: 2; pointer-events: none;
         }
 
-        /* FOREGROUND INTERFACE */
+        /* WATERMARK CREST LOGO (BOTTOM LEFT BEHIND TEXT) */
+        .logo-left-bottom {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            z-index: 2;
+            opacity: 0.2; 
+            max-width: 280px;
+            pointer-events: none;
+            user-select: none;
+        }
+        .logo-left-bottom img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* INTERFACE CONTENT LAYERS */
         .content-overlap-wrapper {
-            position: relative; width: 90vw; max-width: 1200px; height: 85vh; 
+            position: relative; width: 88vw; max-width: 1200px; height: 80vh; 
             z-index: 3; display: flex; align-items: flex-end; 
             opacity: 1;
         }
@@ -71,21 +88,19 @@
         .navigation-row { display: flex; gap: 20px; }
         .action-control-btn { font-family: 'Cinzel', serif; background: transparent; border: 1px solid #00d668; color: #00d668; padding: 12px 35px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s ease; text-shadow: 1px 1px 2px #000; }
         .action-control-btn:hover { background: #00d668; color: #000000; box-shadow: 0 0 25px rgba(0, 214, 104, 0.5); }
-
-        @keyframes editWhipInBg {
-            0% { transform: scale(1.1); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
     </style>
 </head>
 <body>
 
-    <!-- REVERTED BOXED FRAME -->
     <div class="full-screen-bg" id="bgLayer">
         <video autoplay loop muted playsinline>
             <source src="CR7_WebsiteHighlights-Sporting_mobile.mp4" type="video/mp4">
         </video>
         <div class="video-dark-overlay"></div>
+        
+        <div class="logo-left-bottom">
+            <img src="sporting-club-logo.png" alt="Sporting CP Crest">
+        </div>
     </div>
 
     <div class="menu-top-right">
