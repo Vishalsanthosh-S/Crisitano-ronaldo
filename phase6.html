@@ -91,7 +91,7 @@
         }
         .action-control-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px #d4af37; }
 
-        /* --- MOBILE RESPONSIVENESS (ADDED) --- */
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
             body { overflow-y: auto !important; }
             .content-side-by-side { 
@@ -103,18 +103,19 @@
             .text-section { width: 100% !important; text-align: center !important; }
             .karuppu-style-header { font-size: 3rem !important; }
             .elegant-narrative-text { font-size: 1.1rem !important; margin-top: 15px !important; padding-left: 10px !important; }
+            
             .image-section { 
                 width: 100% !important; 
                 display: flex !important; 
-                margin-top: 20px !important; 
+                justify-content: flex-end !important; /* Force to right */
+                order: -1 !important; /* Moves image above text */
+                margin-bottom: 20px !important; 
             }
             .foreground-cutout { 
-                height: 30vh !important; 
-                max-height: 250px !important; 
+                height: 18vh !important; /* Smaller size */
+                max-height: 150px !important; 
                 width: auto !important; 
-                object-fit: contain !important; 
-                margin-left: auto !important; /* Force to right side */
-                margin-right: 0 !important;   /* Reset right margin */
+                object-fit: contain !important;
             }
             .navigation-row { flex-direction: column !important; gap: 10px !important; }
             .action-control-btn { width: 100% !important; text-align: center !important; padding: 15px !important; }
