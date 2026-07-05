@@ -19,9 +19,9 @@
 
         .blue-white-btn {
             font-family: 'Cinzel', serif;
-            background: #003366; /* Royal Blue */
+            background: #003366;
             border: 2px solid #ffffff;
-            color: #ffffff;       /* White Text */
+            color: #ffffff;
             padding: 12px 30px;
             text-transform: uppercase;
             font-weight: bold;
@@ -38,7 +38,6 @@
             border-color: #ffffff;
         }
 
-        /* Pure black background with a subtle gradient hint */
         .full-screen-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
                     url('https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/61f9/live/e3510710-5557-11f1-b427-e5f9d829c03e.jpg') no-repeat center center/cover; z-index: 1; }
 
@@ -52,12 +51,11 @@
             100% { transform: translateX(0); opacity: 1; }
         }
 
-        /* Text Side: Thick Gold Effect */
         .text-section { width: 50%; text-align: left; color: #fff; font-family: 'Playfair Display', serif; }
         
         .karuppu-style-header { 
             font-family: 'Road Rage', sans-serif; font-size: 5rem; margin: 0; 
-            color: #d4af37; /* Metallic Gold */
+            color: #d4af37;
             text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.8), 0px 0px 20px rgba(0,0,0,1);
         }
 
@@ -66,14 +64,12 @@
             color: #f1f1f1; border-left: 3px solid #d4af37; padding-left: 20px;
         }
 
-        /* Image Side: Gold Glow */
         .image-section { width: 45%; display: flex; justify-content: flex-end; }
         .foreground-cutout { 
             height: 75vh; 
             filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.2)); 
         }
 
-        /* Trophy Cabinet: Gold Border */
         .trophy-cabinet { 
             margin: 25px 0; background: rgba(0, 0, 0, 0.6); padding: 20px; 
             border: 2px solid #d4af37; border-radius: 5px; 
@@ -107,15 +103,15 @@
             .image-section { 
                 width: 100% !important; 
                 display: flex !important; 
-                justify-content: flex-end !important; /* Force to right */
-                order: -1 !important; /* Moves image above text */
+                justify-content: center !important; 
+                order: -1 !important; 
                 margin-bottom: 20px !important; 
             }
             .foreground-cutout { 
-                height: 18vh !important; /* Smaller size */
-                max-height: 150px !important; 
+                height: 200px !important; 
                 width: auto !important; 
                 object-fit: contain !important;
+                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
             }
             .navigation-row { flex-direction: column !important; gap: 10px !important; }
             .action-control-btn { width: 100% !important; text-align: center !important; padding: 15px !important; }
