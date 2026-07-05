@@ -39,7 +39,8 @@
             box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); 
             border-radius: 12px;
             background: #000;
-            animation: editWhipInBg 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            /* Zoom-out animation */
+            animation: editWhipInBg 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
             transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out;
         }
         
@@ -76,7 +77,12 @@
         /* ANIMATIONS */
         .whip-exit-content { transform: translate3d(-100vw, 0, 0) scale(0.8); filter: blur(20px); opacity: 0; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
         .whip-exit-bg { transform: scale(1.2); opacity: 0; transition: all 0.6s ease; }
-        @keyframes editWhipInBg { 0% { transform: scale(1.05); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        
+        /* Zoom-out keyframe */
+        @keyframes editWhipInBg { 
+            0% { transform: scale(1.15); opacity: 0; } 
+            100% { transform: scale(1); opacity: 1; } 
+        }
     </style>
 </head>
 <body>
