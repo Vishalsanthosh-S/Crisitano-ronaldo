@@ -13,37 +13,11 @@
             perspective: 1200px; -webkit-font-smoothing: antialiased;
         }
 
-        /* MASSIVE NEON BORDER FRAME */
-        .full-screen-bg {
+        /* MENU BUTTON: BACK TO TOP RIGHT CORNER */
+        .menu-top-right { 
             position: absolute; 
-            top: 4%; left: 4%; 
-            width: 92%; height: 92%;
-            z-index: 1; overflow: hidden;
-            /* Drastically increased border thickness and neon intensity */
-            border: 16px solid #00d668; 
-            box-shadow: 0 0 50px rgba(0, 214, 104, 0.8), inset 0 0 30px rgba(0, 214, 104, 0.5);
-            border-radius: 24px;
-            background: #000;
-            animation: editWhipInBg 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out;
-        }
-        .full-screen-bg video { 
-            width: 100%; height: 100%; 
-            object-fit: cover; /* Keeps the video completely filling the inner box */
-        }
-        
-        /* MOODY GRADIENT OVERLAY */
-        .video-dark-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.3) 100%);
-            z-index: 2; pointer-events: none;
-        }
-
-        /* MOVED MENU BUTTON TO BOTTOM LEFT TO FIX THE POSITIONING */
-        .menu-bottom-left { 
-            position: absolute; 
-            bottom: 50px; 
-            left: 50px; 
+            top: 30px; 
+            right: 30px; 
             z-index: 1000; 
         }
 
@@ -55,14 +29,41 @@
         }
         .green-master-btn:hover { background: #000; color: #00d668; border-color: #00d668; box-shadow: 0 0 25px rgba(0, 214, 104, 0.8); }
 
-        /* WATERMARK CREST LOGO (ANCHORED BOTTOM LEFT BEHIND TEXT) */
+        /* WIDE VIEW VIDEO CONTAINER WITH THIN BORDER */
+        .full-screen-bg {
+            position: absolute; 
+            top: 2%; left: 2%; 
+            width: 96%; height: 96%; /* Expanded wide frame to maximize video visibility */
+            z-index: 1; overflow: hidden;
+            border: 2px solid #00d668; /* Thin, clean neon border */
+            box-shadow: 0 0 15px rgba(0, 214, 104, 0.4); 
+            border-radius: 12px;
+            background: #000;
+            animation: editWhipInBg 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out;
+        }
+        
+        .full-screen-bg video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* Keeps video filling the wide frame fully */
+        }
+        
+        /* MOODY GRADIENT OVERLAY */
+        .video-dark-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.2) 100%);
+            z-index: 2; pointer-events: none;
+        }
+
+        /* WATERMARK CREST LOGO (BOTTOM LEFT BEHIND TEXT) */
         .logo-left-bottom {
             position: absolute;
-            bottom: 120px;
-            left: 50px;
+            bottom: 40px;
+            left: 40px;
             z-index: 2;
-            opacity: 0.25; 
-            max-width: 320px;
+            opacity: 0.2; 
+            max-width: 280px;
             pointer-events: none;
             user-select: none;
         }
@@ -71,14 +72,14 @@
             height: auto;
         }
 
-        /* CONTENT OVERLAY INTERFACE */
+        /* INTERFACE CONTENT LAYERS */
         .content-overlap-wrapper {
-            position: relative; width: 85vw; max-width: 1200px; height: 75vh; 
+            position: relative; width: 88vw; max-width: 1200px; height: 80vh; 
             z-index: 3; display: flex; align-items: flex-end; 
             opacity: 1;
         }
 
-        .text-column-left { flex: 1.2; padding: 0 40px 120px 0; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; z-index: 4; }
+        .text-column-left { flex: 1.2; padding: 0 40px 60px 0; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; z-index: 4; }
         .image-column-right { flex: 1; display: flex; justify-content: center; align-items: flex-end; position: relative; height: 100%; z-index: 4; }
         .foreground-cutout { height: 95%; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 0 15px rgba(0, 214, 104, 0.6)); }
 
@@ -91,25 +92,21 @@
 </head>
 <body>
 
-    <!-- HEAVILY BORDERED BACKGROUND FRAME -->
     <div class="full-screen-bg" id="bgLayer">
         <video autoplay loop muted playsinline>
             <source src="CR7_WebsiteHighlights-Sporting_mobile.mp4" type="video/mp4">
         </video>
         <div class="video-dark-overlay"></div>
         
-        <!-- Watermark Crest Asset Asset -->
         <div class="logo-left-bottom">
             <img src="sporting-club-logo.png" alt="Sporting CP Crest">
         </div>
     </div>
 
-    <!-- MOVED MENU BUTTON TO FIXED BOTTOM LEFT POSITION -->
-    <div class="menu-bottom-left">
+    <div class="menu-top-right">
         <a class="green-master-btn" href="menu.html">MENU</a>
     </div>
 
-    <!-- MAIN INTERFACE OVERLAY -->
     <div class="content-overlap-wrapper" id="contentWrapper">
         <div class="text-column-left">
             <h2 class="karuppu-style-header">SPORTING CP ASCENT</h2>
