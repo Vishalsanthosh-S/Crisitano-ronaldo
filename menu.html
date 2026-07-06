@@ -9,91 +9,47 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
 
-body { 
+* {
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
     height: 100vh;
-    overflow: hidden;
     background: #000;
+    overflow: hidden;
     font-family: 'Cinzel', serif;
-    color: #fff; 
+    color: #fff;
 }
 
-/* Outer Frame */
+/* OUTER FRAME */
 .main-container {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
+    inset: 15px;
     border: 2px solid #d4af37;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
-/* Header */
-.header { 
+/* HEADER */
+.header {
     display: flex;
     justify-content: center;
-    padding: 25px;
     gap: 15px;
+    padding: 20px;
     border-bottom: 2px solid #d4af37;
-    background: rgba(0,0,0,0.8);
-    z-index: 2;
+    background: rgba(0,0,0,0.9);
+    flex-shrink: 0;
 }
 
-/* Main Area */
-.main-content { 
-    position: relative;
-    flex: 1;
-    overflow: hidden;
-}
-
-/* Background Video */
-.background-clip {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-}
-
-/* Content Layer (padding goes here, NOT on main-content) */
-.content-layer {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    gap: 50px;
-    padding: 50px;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-/* Panels */
-.left-panel {
-    flex: 2;
-}
-
-.right-panel {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Buttons */
+/* NAV BUTTONS */
 .nav-btn {
     color: #d4af37;
     text-decoration: none;
     padding: 8px 16px;
     border: 1px solid #d4af37;
-    text-transform: uppercase;
     font-size: 0.7rem;
+    text-transform: uppercase;
     transition: 0.3s;
 }
 
@@ -103,37 +59,83 @@ body {
     box-shadow: 0 0 15px #d4af37;
 }
 
-/* Title */
+/* MAIN CONTENT */
+.main-content {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* VIDEO */
+.background-clip {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* CONTENT LAYER */
+.content-layer {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 50px;
+    display: flex;
+    gap: 50px;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+/* LEFT PANEL */
+.left-panel {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* TITLE */
 h1 {
     font-family: 'ZCOOL KuaiLe', cursive;
     font-size: 5rem;
-    margin: 0;
-    text-shadow: 0 0 20px #d4af37;
+    margin: 0 0 20px 0;
     letter-spacing: 5px;
+    text-shadow: 0 0 20px #d4af37;
 }
 
-/* Search */
+/* SEARCH */
 .search-bar {
     width: 60%;
     padding: 15px;
     background: rgba(0,0,0,0.8);
     border: 2px solid #d4af37;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
-/* Image Box */
+/* RIGHT PANEL */
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* IMAGE */
 .display-img {
     width: 100%;
-    height: 350px;
+    aspect-ratio: 3 / 4;
     border: 2px solid #d4af37;
     background: url('https://i.pinimg.com/736x/6e/00/73/6e0073bd72d1918c63d69f3543748d34.jpg')
-                no-repeat center center / cover;
+        no-repeat center / cover;
 }
 
-/* Walk Button */
+/* BUTTON */
 .walk-btn {
-    padding: 20px;
+    margin-top: 20px;
+    padding: 18px;
     background: #d4af37;
     color: #000;
     text-align: center;
@@ -162,14 +164,13 @@ h1 {
     </div>
 
     <div class="main-content">
-
         <video autoplay muted loop playsinline class="background-clip">
             <source src="video.mp4.mp4" type="video/mp4">
         </video>
 
         <div class="content-layer">
             <div class="left-panel">
-                <h1>CAREER HIGHLIGHTS</h1>
+                <h1>CAREER<br>HIGHLIGHTS</h1>
                 <input type="text" class="search-bar" placeholder="Search phases...">
             </div>
 
@@ -178,7 +179,6 @@ h1 {
                 <a href="index.html" class="walk-btn">Begin Walkthrough</a>
             </div>
         </div>
-
     </div>
 
 </div>
