@@ -6,20 +6,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
 
-        /* ADDED: Thin golden border overlay */
-        .thin-border {
-            position: fixed; top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 1px solid #d4af37; pointer-events: none; z-index: 1000;
-        }
-
-        /* ADDED: Video background container */
-        .bg-video-wrap {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
-        }
-        .bg-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
-
         body { 
             margin: 0; height: 100vh; overflow: hidden;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)); 
+            border: 1px solid #d4af37; /* Very thin gold border */
+            box-sizing: border-box;
             font-family: 'Cinzel', serif; color: #fff; display: flex; flex-direction: column;
             /* Entrance Animation */
             animation: flashEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -56,13 +47,10 @@
     </style>
 </head>
 <body>
-    <!-- ADDED: Border and Video BG -->
-    <div class="thin-border"></div>
-    <div class="bg-video-wrap">
-        <video autoplay muted loop playsinline>
-            <source src="YOUR_VIDEO_URL_HERE.mp4" type="video/mp4">
-        </video>
-    </div>
+    <!-- Background Video replacing the image url -->
+    <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="WhatsApp Video 2026-07-06 at 5.10.02 PM (1).mp4" type="video/mp4">
+    </video>
 
     <div class="header" id="nav-header">
         <a href="index.html" class="nav-btn">JOURNEY</a>
@@ -73,7 +61,7 @@
         <a href="phase5.html" class="nav-btn">JUVENTUS</a>
         <a href="phase6.html" class="nav-btn">AL NASSR</a>
         <a href="phase7.html" class="nav-btn">PORTUGAL</a>
-        <a href="phase8.html" class="nav-btn">CAREER STATS</a>
+          <a href="phase8.html" class="nav-btn">CAREER STATS</a>
     </div>
 
     <div class="main-content">
@@ -92,6 +80,7 @@
             const query = e.target.value.toLowerCase();
             const links = document.querySelectorAll('.nav-btn');
             links.forEach(link => {
+                // Lenient filter: if empty, show all; otherwise show matches
                 if (query === "" || link.textContent.toLowerCase().includes(query)) {
                     link.style.display = 'block';
                 } else {
