@@ -3,7 +3,6 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
-
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
 
         body { 
@@ -49,7 +48,7 @@
             overflow: hidden;
         }
 
-        /* ✅ ONLY CHANGE IS HERE */
+        /* 🔧 ONLY ADDITIONS ARE HERE */
         .background-clip {
             position: absolute;
             top: 0;
@@ -58,8 +57,11 @@
             height: 100%;
             object-fit: cover;
 
-            /* 👇 LOWER % = subject moves DOWN */
+            /* this now ACTUALLY moves the clip */
             object-position: center 45%;
+
+            /* 👇 ADD THIS (creates vertical overflow) */
+            transform: scale(1.08);
 
             z-index: 0;
         }
@@ -128,7 +130,6 @@
             font-weight: bold;
             text-transform: uppercase;
         }
-
     </style>
 </head>
 
@@ -149,7 +150,6 @@
     </div>
 
     <div class="main-content">
-
         <video autoplay muted loop playsinline class="background-clip">
             <source src="video.mp4.mp4" type="video/mp4">
         </video>
@@ -163,7 +163,6 @@
             <div class="display-img"></div>
             <a href="#" class="walk-btn">BEGIN WALKTHROUGH</a>
         </div>
-
     </div>
 
 </div>
