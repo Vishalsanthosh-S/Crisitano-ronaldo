@@ -21,39 +21,43 @@
             overflow: hidden; 
         }
 
+        /* 1st Border (Header) */
         .header { 
             display: flex; justify-content: center; padding: 25px; gap: 15px; 
-            border-bottom: 2px solid #d4af37; background: rgba(0,0,0,0.6); 
+            border-bottom: 2px solid #d4af37; background: rgba(0,0,0,0.8); z-index: 2;
         }
 
-        /* This is your "2nd Border" area */
+        /* 2nd Border (The Box for the video + content) */
         .main-content { 
-            position: relative; /* This is crucial: it anchors the video here */
+            position: relative; /* This confines the video to this specific box */
             flex: 1; 
             display: flex; 
             padding: 50px; 
             gap: 50px; 
             align-items: center; 
             justify-content: center; 
+            overflow: hidden;
         }
 
-        /* The video will now only fill the .main-content box */
-        .content-video {
+        /* The Video Clip */
+        .background-clip {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            object-position: bottom; /* Anchors the clip visual to the bottom */
-            z-index: 0;
+            object-position: center;
+            z-index: 0; /* Keeps the video behind the text */
         }
 
-        /* Rest of your styles */
+        /* Content Panels (must be on top of video) */
+        .left-panel, .right-panel { z-index: 1; }
+
         .nav-btn { color: #d4af37; text-decoration: none; padding: 8px 16px; border: 1px solid #d4af37; text-transform: uppercase; font-size: 0.7rem; transition: 0.3s; }
         .nav-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 15px #d4af37; }
-        .left-panel { flex: 2; z-index: 1; }
+        .left-panel { flex: 2; }
         h1 { font-family: 'ZCOOL KuaiLe', cursive; font-size: 5rem; margin: 0; text-shadow: 0 0 20px #d4af37; letter-spacing: 5px; }
-        .search-bar { width: 60%; padding: 15px; background: rgba(0,0,0,0.8); border: 2px solid #d4af37; color: #fff; font-size: 1.2rem; z-index: 1; }
-        .right-panel { flex: 1; display: flex; flex-direction: column; gap: 20px; z-index: 1; }
+        .search-bar { width: 60%; padding: 15px; background: rgba(0,0,0,0.8); border: 2px solid #d4af37; color: #fff; font-size: 1.2rem; }
+        .right-panel { flex: 1; display: flex; flex-direction: column; gap: 20px; }
         .display-img { width: 100%; height: 350px; border: 2px solid #d4af37; background: url('https://i.pinimg.com/736x/6e/00/73/6e0073bd72d1918c63d69f3543748d34.jpg') no-repeat center center/cover; }
         .walk-btn { padding: 20px; background: #d4af37; color: #000; text-align: center; text-decoration: none; font-weight: bold; text-transform: uppercase; }
     </style>
@@ -62,19 +66,19 @@
     
     <div class="main-container">
         <div class="header">
-            <a href="#" class="nav-btn">JOURNEY</a>
-            <a href="#" class="nav-btn">ROOTS</a>
-            <a href="#" class="nav-btn">SPORTING</a>
-            <a href="#" class="nav-btn">UNITED</a>
-            <a href="#" class="nav-btn">MADRID</a>
-            <a href="#" class="nav-btn">JUVENTUS</a>
-            <a href="#" class="nav-btn">AL NASSR</a>
-            <a href="#" class="nav-btn">PORTUGAL</a>
-            <a href="#" class="nav-btn">CAREER STATS</a>
+            <a href="index.html" class="nav-btn">JOURNEY</a>
+            <a href="phase1.html" class="nav-btn">ROOTS</a>
+            <a href="phase2.html" class="nav-btn">SPORTING</a>
+            <a href="phase3.html" class="nav-btn">UNITED</a>
+            <a href="phase4.html" class="nav-btn">MADRID</a>
+            <a href="phase5.html" class="nav-btn">JUVENTUS</a>
+            <a href="phase6.html" class="nav-btn">AL NASSR</a>
+            <a href="phase7.html" class="nav-btn">PORTUGAL</a>
+            <a href="phase8.html" class="nav-btn">CAREER STATS</a>
         </div>
 
         <div class="main-content">
-            <video autoplay muted loop playsinline class="content-video">
+            <video autoplay muted loop playsinline class="background-clip">
                 <source src="video.mp4.mp4" type="video/mp4">
             </video>
 
@@ -84,7 +88,7 @@
             </div>
             <div class="right-panel">
                 <div class="display-img"></div>
-                <a href="#" class="walk-btn">BEGIN WALKTHROUGH</a>
+                <a href="index.html" class="walk-btn">BEGIN WALKTHROUGH</a>
             </div>
         </div>
     </div>
