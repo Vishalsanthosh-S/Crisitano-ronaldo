@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Importing Ink Brush Font -->
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
@@ -33,7 +32,6 @@
         .nav-btn { color: #d4af37; text-decoration: none; padding: 8px 16px; border: 1px solid #d4af37; text-transform: uppercase; font-size: 0.7rem; transition: 0.3s; }
         .nav-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 15px #d4af37; }
 
-        /* UPDATED: Container for the video clip */
         .main-content { 
             display: flex; flex: 1; padding: 50px; gap: 50px; align-items: center; justify-content: center; 
             position: relative; overflow: hidden;
@@ -75,8 +73,7 @@
         </div>
 
         <div class="main-content">
-            <!-- Video moved here to be clipped within this specific box -->
-            <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+            <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0;">
                 <source src="enhanced_ronaldo.mp4" type="video/mp4">
             </video>
 
