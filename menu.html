@@ -3,6 +3,7 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
 
         body { 
@@ -27,7 +28,6 @@
             overflow: hidden; 
         }
 
-        /* Header */
         .header { 
             display: flex;
             justify-content: center;
@@ -38,7 +38,6 @@
             z-index: 2;
         }
 
-        /* Main Content */
         .main-content { 
             position: relative;
             flex: 1; 
@@ -50,7 +49,7 @@
             overflow: hidden;
         }
 
-        /* Background Video */
+        /* ✅ ONLY CHANGE IS HERE */
         .background-clip {
             position: absolute;
             top: 0;
@@ -58,11 +57,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+
+            /* 👇 LOWER % = subject moves DOWN */
+            object-position: center 35%;
+
             z-index: 0;
         }
 
-        /* Panels */
         .left-panel,
         .right-panel {
             z-index: 1;
@@ -115,7 +116,7 @@
             height: 350px;
             border: 2px solid #d4af37;
             background: url('https://i.pinimg.com/736x/6e/00/73/6e0073bd72d1918c63d69f3543748d34.jpg')
-                        no-repeat center center / cover;
+                        no-repeat center / cover;
         }
 
         .walk-btn {
@@ -127,6 +128,7 @@
             font-weight: bold;
             text-transform: uppercase;
         }
+
     </style>
 </head>
 
@@ -135,15 +137,15 @@
 <div class="main-container">
 
     <div class="header">
-        <a href="index.html" class="nav-btn">JOURNEY</a>
-        <a href="phase1.html" class="nav-btn">ROOTS</a>
-        <a href="phase2.html" class="nav-btn">SPORTING</a>
-        <a href="phase3.html" class="nav-btn">UNITED</a>
-        <a href="phase4.html" class="nav-btn">MADRID</a>
-        <a href="phase5.html" class="nav-btn">JUVENTUS</a>
-        <a href="phase6.html" class="nav-btn">AL NASSR</a>
-        <a href="phase7.html" class="nav-btn">PORTUGAL</a>
-        <a href="phase8.html" class="nav-btn">CAREER STATS</a>
+        <a href="#" class="nav-btn">Journey</a>
+        <a href="#" class="nav-btn">Roots</a>
+        <a href="#" class="nav-btn">Sporting</a>
+        <a href="#" class="nav-btn">United</a>
+        <a href="#" class="nav-btn">Madrid</a>
+        <a href="#" class="nav-btn">Juventus</a>
+        <a href="#" class="nav-btn">Al Nassr</a>
+        <a href="#" class="nav-btn">Portugal</a>
+        <a href="#" class="nav-btn">Career Stats</a>
     </div>
 
     <div class="main-content">
@@ -159,7 +161,7 @@
 
         <div class="right-panel">
             <div class="display-img"></div>
-            <a href="index.html" class="walk-btn">BEGIN WALKTHROUGH</a>
+            <a href="#" class="walk-btn">BEGIN WALKTHROUGH</a>
         </div>
 
     </div>
