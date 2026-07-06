@@ -13,7 +13,9 @@
 
         .main-container {
             position: absolute;
-            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            top: 15px; left: 15px; right: 15px; 
+            /* INCREASE THIS VALUE TO PULL THE BOTTOM BORDER UP */
+            bottom: 150px; 
             border: 2px solid #d4af37;
             box-sizing: border-box;
             display: flex;
@@ -29,7 +31,7 @@
 
         /* 2nd Border (The Box for the video + content) */
         .main-content { 
-            position: relative; /* This confines the video to this specific box */
+            position: relative; 
             flex: 1; 
             display: flex; 
             padding: 50px; 
@@ -46,10 +48,9 @@
             width: 100%; height: 100%;
             object-fit: cover;
             object-position: center;
-            z-index: 0; /* Keeps the video behind the text */
+            z-index: 0; 
         }
 
-        /* Content Panels (must be on top of video) */
         .left-panel, .right-panel { z-index: 1; }
 
         .nav-btn { color: #d4af37; text-decoration: none; padding: 8px 16px; border: 1px solid #d4af37; text-transform: uppercase; font-size: 0.7rem; transition: 0.3s; }
