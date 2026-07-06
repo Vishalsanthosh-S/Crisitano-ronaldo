@@ -1,171 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
-    <style>
+<meta charset="UTF-8">
+<title>Cinematic Hero</title>
 
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
 
-        body { 
-            margin: 0;
-            height: 100vh;
-            overflow: hidden;
-            background: #000;
-            font-family: 'Cinzel', serif;
-            color: #fff; 
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .main-container {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border: 2px solid #d4af37;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden; 
-        }
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Cinzel', serif;
+    color: #fff;
+}
 
-        .header { 
-            display: flex;
-            justify-content: center;
-            padding: 25px;
-            gap: 15px; 
-            border-bottom: 2px solid #d4af37;
-            background: rgba(0,0,0,0.8);
-            z-index: 2;
-        }
+/* MAIN CONTAINER */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
 
-        .main-content { 
-            position: relative;
-            flex: 1; 
-            display: flex; 
-            padding: 50px; 
-            gap: 50px; 
-            align-items: center; 
-            justify-content: center; 
-            overflow: hidden;
-        }
+/* VIDEO / IMAGE CLIP */
+.background-clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 58%; /* 👈 ONLY THIS VALUE CHANGED */
+    z-index: 0;
+}
 
-        /* ✅ ONLY CHANGE IS HERE */
-        .background-clip {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+/* DARK OVERLAY */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
+}
 
-            /* 👇 LOWER % = subject moves DOWN */
-            object-position: center 45%;
+/* CENTER CONTENT */
+.content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-            z-index: 0;
-        }
+/* TEXT BOX */
+.content-box {
+    border: 2px solid rgba(255,255,255,0.6);
+    padding: 40px 70px;
+    backdrop-filter: blur(3px);
+}
 
-        .left-panel,
-        .right-panel {
-            z-index: 1;
-        }
+.content-box h1 {
+    margin: 0;
+    font-size: 48px;
+    letter-spacing: 4px;
+}
 
-        .nav-btn {
-            color: #d4af37;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid #d4af37;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            transition: 0.3s;
-        }
-
-        .nav-btn:hover {
-            background: #d4af37;
-            color: #000;
-            box-shadow: 0 0 15px #d4af37;
-        }
-
-        .left-panel { flex: 2; }
-
-        h1 {
-            font-family: 'ZCOOL KuaiLe', cursive;
-            font-size: 5rem;
-            margin: 0;
-            text-shadow: 0 0 20px #d4af37;
-            letter-spacing: 5px;
-        }
-
-        .search-bar {
-            width: 60%;
-            padding: 15px;
-            background: rgba(0,0,0,0.8);
-            border: 2px solid #d4af37;
-            color: #fff;
-            font-size: 1.2rem;
-        }
-
-        .right-panel {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .display-img {
-            width: 100%;
-            height: 350px;
-            border: 2px solid #d4af37;
-            background: url('https://i.pinimg.com/736x/6e/00/73/6e0073bd72d1918c63d69f3543748d34.jpg')
-                        no-repeat center / cover;
-        }
-
-        .walk-btn {
-            padding: 20px;
-            background: #d4af37;
-            color: #000;
-            text-align: center;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-    </style>
+.content-box p {
+    margin-top: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    opacity: 0.85;
+}
+</style>
 </head>
 
 <body>
 
-<div class="main-container">
+<div class="hero">
+    <!-- replace src with your video or image -->
+    <video class="background-clip" autoplay muted loop>
+        <source src="your-video.mp4" type="video/mp4">
+    </video>
 
-    <div class="header">
-        <a href="#" class="nav-btn">Journey</a>
-        <a href="#" class="nav-btn">Roots</a>
-        <a href="#" class="nav-btn">Sporting</a>
-        <a href="#" class="nav-btn">United</a>
-        <a href="#" class="nav-btn">Madrid</a>
-        <a href="#" class="nav-btn">Juventus</a>
-        <a href="#" class="nav-btn">Al Nassr</a>
-        <a href="#" class="nav-btn">Portugal</a>
-        <a href="#" class="nav-btn">Career Stats</a>
-    </div>
+    <div class="overlay"></div>
 
-    <div class="main-content">
-
-        <video autoplay muted loop playsinline class="background-clip">
-            <source src="video.mp4.mp4" type="video/mp4">
-        </video>
-
-        <div class="left-panel">
-            <h1>CAREER HIGHLIGHTS</h1>
-            <input type="text" class="search-bar" placeholder="Search phases...">
+    <div class="content">
+        <div class="content-box">
+            <h1>YOUR TITLE</h1>
+            <p>Your cinematic subtitle goes here</p>
         </div>
-
-        <div class="right-panel">
-            <div class="display-img"></div>
-            <a href="#" class="walk-btn">BEGIN WALKTHROUGH</a>
-        </div>
-
     </div>
-
 </div>
 
 </body>
