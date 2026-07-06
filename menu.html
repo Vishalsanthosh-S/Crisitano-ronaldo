@@ -1,139 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Career Highlights</title>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
 
-<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+        body { 
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+            font-family: 'Cinzel', serif;
+            color: #fff; 
+        }
 
-* {
-    box-sizing: border-box;
-}
+        .main-container {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid #d4af37;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; 
+        }
 
-body {
-    margin: 0;
-    height: 100vh;
-    background: #000;
-    overflow: hidden;
-    font-family: 'Cinzel', serif;
-    color: #fff;
-}
+        /* Header */
+        .header { 
+            display: flex;
+            justify-content: center;
+            padding: 25px;
+            gap: 15px; 
+            border-bottom: 2px solid #d4af37;
+            background: rgba(0,0,0,0.8);
+            z-index: 2;
+        }
 
-/* OUTER FRAME */
-.main-container {
-    position: absolute;
-    inset: 15px;
-    border: 2px solid #d4af37;
-    display: flex;
-    flex-direction: column;
-}
+        /* Main content box */
+        .main-content { 
+            position: relative;
+            flex: 1; 
+            display: flex; 
+            padding: 50px; 
+            gap: 50px; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+        }
 
-/* HEADER */
-.header {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px;
-    border-bottom: 2px solid #d4af37;
-    background: rgba(0,0,0,0.9);
-    flex-shrink: 0;
-}
+        /* VIDEO — ONLY CHANGE IS HERE */
+        .background-clip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
 
-/* NAV */
-.nav-btn {
-    color: #d4af37;
-    text-decoration: none;
-    padding: 8px 16px;
-    border: 1px solid #d4af37;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-}
+            /* 👇 moves the visible clip DOWN */
+            object-position: center 65%;
 
-/* MAIN CONTENT */
-.main-content {
-    position: relative;
-    flex: 1;
-    display: grid;
-    overflow: hidden;
-}
+            z-index: 0;
+        }
 
-/* VIDEO */
-.background-clip {
-    grid-area: 1 / 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        /* Panels */
+        .left-panel,
+        .right-panel {
+            z-index: 1;
+        }
 
-/* CONTENT LAYER */
-.content-layer {
-    grid-area: 1 / 1;
-    display: flex;
-    gap: 50px;
-    padding: 50px;
-    align-items: stretch;
-    justify-content: space-between;
-    z-index: 1;
-}
+        .nav-btn {
+            color: #d4af37;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #d4af37;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            transition: 0.3s;
+        }
 
-/* LEFT */
-.left-panel {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        .nav-btn:hover {
+            background: #d4af37;
+            color: #000;
+            box-shadow: 0 0 15px #d4af37;
+        }
 
-/* TITLE */
-h1 {
-    font-family: 'ZCOOL KuaiLe', cursive;
-    font-size: 5rem;
-    margin: 0 0 20px;
-    letter-spacing: 5px;
-    text-shadow: 0 0 20px #d4af37;
-}
+        .left-panel { 
+            flex: 2; 
+        }
 
-/* SEARCH */
-.search-bar {
-    width: 60%;
-    padding: 15px;
-    background: rgba(0,0,0,0.8);
-    border: 2px solid #d4af37;
-    color: #fff;
-}
+        h1 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            font-size: 5rem;
+            margin: 0;
+            text-shadow: 0 0 20px #d4af37;
+            letter-spacing: 5px;
+        }
 
-/* RIGHT */
-.right-panel {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        .search-bar {
+            width: 60%;
+            padding: 15px;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid #d4af37;
+            color: #fff;
+            font-size: 1.2rem;
+        }
 
-/* IMAGE */
-.display-img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    border: 2px solid #d4af37;
-    background: url('https://i.pinimg.com/736x/6e/00/73/6e0073bd72d1918c63d69f3543748d34.jpg')
-        no-repeat center / cover;
-}
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-/* BUTTON */
-.walk-btn {
-    margin-top: 20px;
-    padding: 18px;
-    background: #d4af37;
-    color: #000;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-</style>
+        .display-img {
+            width: 100%;
+            height: 350px;
+            border: 2px solid #d4af37;
+            background: url('https://i.pinimg.com/736x/6e/00/73/6e0073bd72d1918c63d69f3543748d34.jpg')
+                        no-repeat center center / cover;
+        }
+
+        .walk-btn {
+            padding: 20px;
+            background: #d4af37;
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -141,33 +142,33 @@ h1 {
 <div class="main-container">
 
     <div class="header">
-        <a href="#" class="nav-btn">Journey</a>
-        <a href="#" class="nav-btn">Roots</a>
-        <a href="#" class="nav-btn">Sporting</a>
-        <a href="#" class="nav-btn">United</a>
-        <a href="#" class="nav-btn">Madrid</a>
-        <a href="#" class="nav-btn">Juventus</a>
-        <a href="#" class="nav-btn">Al Nassr</a>
-        <a href="#" class="nav-btn">Portugal</a>
-        <a href="#" class="nav-btn">Career Stats</a>
+        <a href="index.html" class="nav-btn">Journey</a>
+        <a href="phase1.html" class="nav-btn">Roots</a>
+        <a href="phase2.html" class="nav-btn">Sporting</a>
+        <a href="phase3.html" class="nav-btn">United</a>
+        <a href="phase4.html" class="nav-btn">Madrid</a>
+        <a href="phase5.html" class="nav-btn">Juventus</a>
+        <a href="phase6.html" class="nav-btn">Al Nassr</a>
+        <a href="phase7.html" class="nav-btn">Portugal</a>
+        <a href="phase8.html" class="nav-btn">Career Stats</a>
     </div>
 
     <div class="main-content">
+
         <video autoplay muted loop playsinline class="background-clip">
             <source src="video.mp4.mp4" type="video/mp4">
         </video>
 
-        <div class="content-layer">
-            <div class="left-panel">
-                <h1>CAREER<br>HIGHLIGHTS</h1>
-                <input type="text" class="search-bar" placeholder="Search phases...">
-            </div>
-
-            <div class="right-panel">
-                <div class="display-img"></div>
-                <a href="#" class="walk-btn">Begin Walkthrough</a>
-            </div>
+        <div class="left-panel">
+            <h1>CAREER HIGHLIGHTS</h1>
+            <input type="text" class="search-bar" placeholder="Search phases...">
         </div>
+
+        <div class="right-panel">
+            <div class="display-img"></div>
+            <a href="index.html" class="walk-btn">BEGIN WALKTHROUGH</a>
+        </div>
+
     </div>
 
 </div>
