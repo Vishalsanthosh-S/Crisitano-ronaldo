@@ -9,7 +9,6 @@
             margin: 0; height: 100vh; overflow: hidden;
             background: #000;
             font-family: 'Cinzel', serif; color: #fff; 
-            animation: flashEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .main-container {
@@ -21,88 +20,73 @@
             flex-direction: column;
             overflow: hidden; 
         }
-        
-        @keyframes flashEntrance {
-            0% { opacity: 0; filter: blur(20px) brightness(5); transform: scale(1.1); }
-            100% { opacity: 1; filter: blur(0px) brightness(1); transform: scale(1); }
-        }
 
-        /* 1st Border Area */
         .header { 
             display: flex; justify-content: center; padding: 25px; gap: 15px; 
             border-bottom: 2px solid #d4af37; background: rgba(0,0,0,0.6); 
         }
-        
+
+        /* This is your "2nd Border" area */
+        .main-content { 
+            position: relative; /* This is crucial: it anchors the video here */
+            flex: 1; 
+            display: flex; 
+            padding: 50px; 
+            gap: 50px; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        /* The video will now only fill the .main-content box */
+        .content-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: bottom; /* Anchors the clip visual to the bottom */
+            z-index: 0;
+        }
+
+        /* Rest of your styles */
         .nav-btn { color: #d4af37; text-decoration: none; padding: 8px 16px; border: 1px solid #d4af37; text-transform: uppercase; font-size: 0.7rem; transition: 0.3s; }
         .nav-btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 15px #d4af37; }
-
-        /* 2nd Border Area (Where video is anchored) */
-        .main-content { 
-            display: flex; flex: 1; padding: 50px; gap: 50px; align-items: center; justify-content: center; 
-            position: relative; overflow: hidden;
-        }\
-        
         .left-panel { flex: 2; z-index: 1; }
-        
         h1 { font-family: 'ZCOOL KuaiLe', cursive; font-size: 5rem; margin: 0; text-shadow: 0 0 20px #d4af37; letter-spacing: 5px; }
-
         .search-bar { width: 60%; padding: 15px; background: rgba(0,0,0,0.8); border: 2px solid #d4af37; color: #fff; font-size: 1.2rem; z-index: 1; }
-        
         .right-panel { flex: 1; display: flex; flex-direction: column; gap: 20px; z-index: 1; }
-        .display-img { 
-            width: 100%; height: 350px; border: 2px solid #d4af37; 
-            background: url('https://i.pinimg.com/736x/6e/00/73/6e0073bd72d1918c63d69f3543748d34.jpg') no-repeat center center/cover;
-            transition: transform 0.5s;
-        }
-        .display-img:hover { transform: scale(1.02); }
-        
-        .walk-btn { padding: 20px; background: #d4af37; color: #000; text-align: center; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
-        .walk-btn:hover { background: #fff; box-shadow: 0 0 30px #fff; }
+        .display-img { width: 100%; height: 350px; border: 2px solid #d4af37; background: url('https://i.pinimg.com/736x/6e/00/73/6e0073bd72d1918c63d69f3543748d34.jpg') no-repeat center center/cover; }
+        .walk-btn { padding: 20px; background: #d4af37; color: #000; text-align: center; text-decoration: none; font-weight: bold; text-transform: uppercase; }
     </style>
 </head>
 <body>
     
     <div class="main-container">
-        <div class="header" id="nav-header">
-            <a href="index.html" class="nav-btn">JOURNEY</a>
-            <a href="phase1.html" class="nav-btn">ROOTS</a>
-            <a href="phase2.html" class="nav-btn">SPORTING</a>
-            <a href="phase3.html" class="nav-btn">UNITED</a>
-            <a href="phase4.html" class="nav-btn">MADRID</a>
-            <a href="phase5.html" class="nav-btn">JUVENTUS</a>
-            <a href="phase6.html" class="nav-btn">AL NASSR</a>
-            <a href="phase7.html" class="nav-btn">PORTUGAL</a>
-            <a href="phase8.html" class="nav-btn">CAREER STATS</a>
+        <div class="header">
+            <a href="#" class="nav-btn">JOURNEY</a>
+            <a href="#" class="nav-btn">ROOTS</a>
+            <a href="#" class="nav-btn">SPORTING</a>
+            <a href="#" class="nav-btn">UNITED</a>
+            <a href="#" class="nav-btn">MADRID</a>
+            <a href="#" class="nav-btn">JUVENTUS</a>
+            <a href="#" class="nav-btn">AL NASSR</a>
+            <a href="#" class="nav-btn">PORTUGAL</a>
+            <a href="#" class="nav-btn">CAREER STATS</a>
         </div>
 
         <div class="main-content">
-            <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom; z-index: 0;">
+            <video autoplay muted loop playsinline class="content-video">
                 <source src="video.mp4.mp4" type="video/mp4">
             </video>
 
             <div class="left-panel">
                 <h1>CAREER HIGHLIGHTS</h1>
-                <input type="text" id="search" class="search-bar" placeholder="Search phases (e.g. 'Madrid')...">
+                <input type="text" id="search" class="search-bar" placeholder="Search phases...">
             </div>
             <div class="right-panel">
                 <div class="display-img"></div>
-                <a href="index.html" class="walk-btn">BEGIN WALKTHROUGH</a>
+                <a href="#" class="walk-btn">BEGIN WALKTHROUGH</a>
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('search').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            const links = document.querySelectorAll('.nav-btn');
-            links.forEach(link => {
-                if (query === "" || link.textContent.toLowerCase().includes(query)) {
-                    link.style.display = 'block';
-                } else {
-                    link.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
