@@ -9,11 +9,21 @@
         body { 
             margin: 0; height: 100vh; overflow: hidden;
             background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)); 
-            border: 1px solid #d4af37; /* Very thin gold border */
+            /* Border removed from here */
             box-sizing: border-box;
-            font-family: 'Cinzel', serif; color: #fff; display: flex; flex-direction: column;
+            font-family: 'Cinzel', serif; color: #fff; 
+            /* Added centering to drag content down */
+            display: flex; justify-content: center; align-items: center;
             /* Entrance Animation */
             animation: flashEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Added Container to limit the border */
+        .main-container {
+            width: 95%; height: 90vh;
+            border: 1px solid #d4af37;
+            display: flex; flex-direction: column;
+            position: relative;
         }
         
         @keyframes flashEntrance {
@@ -47,31 +57,33 @@
     </style>
 </head>
 <body>
-    <!-- Added min-width and min-height to force full coverage -->
     <video autoplay muted loop playsinline style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -1;">
         <source src="enhanced_ronaldo.mp4" type="video/mp4">
     </video>
 
-    <div class="header" id="nav-header">
-        <a href="index.html" class="nav-btn">JOURNEY</a>
-        <a href="phase1.html" class="nav-btn">ROOTS</a>
-        <a href="phase2.html" class="nav-btn">SPORTING</a>
-        <a href="phase3.html" class="nav-btn">UNITED</a>
-        <a href="phase4.html" class="nav-btn">MADRID</a>
-        <a href="phase5.html" class="nav-btn">JUVENTUS</a>
-        <a href="phase6.html" class="nav-btn">AL NASSR</a>
-        <a href="phase7.html" class="nav-btn">PORTUGAL</a>
-          <a href="phase8.html" class="nav-btn">CAREER STATS</a>
-    </div>
-
-    <div class="main-content">
-        <div class="left-panel">
-            <h1>CAREER HIGHLIGHTS</h1>
-            <input type="text" id="search" class="search-bar" placeholder="Search phases (e.g. 'Madrid')...">
+    <!-- Everything is wrapped in this container now -->
+    <div class="main-container">
+        <div class="header" id="nav-header">
+            <a href="index.html" class="nav-btn">JOURNEY</a>
+            <a href="phase1.html" class="nav-btn">ROOTS</a>
+            <a href="phase2.html" class="nav-btn">SPORTING</a>
+            <a href="phase3.html" class="nav-btn">UNITED</a>
+            <a href="phase4.html" class="nav-btn">MADRID</a>
+            <a href="phase5.html" class="nav-btn">JUVENTUS</a>
+            <a href="phase6.html" class="nav-btn">AL NASSR</a>
+            <a href="phase7.html" class="nav-btn">PORTUGAL</a>
+            <a href="phase8.html" class="nav-btn">CAREER STATS</a>
         </div>
-        <div class="right-panel">
-            <div class="display-img"></div>
-            <a href="index.html" class="walk-btn">BEGIN WALKTHROUGH</a>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <h1>CAREER HIGHLIGHTS</h1>
+                <input type="text" id="search" class="search-bar" placeholder="Search phases (e.g. 'Madrid')...">
+            </div>
+            <div class="right-panel">
+                <div class="display-img"></div>
+                <a href="index.html" class="walk-btn">BEGIN WALKTHROUGH</a>
+            </div>
         </div>
     </div>
 
@@ -80,7 +92,6 @@
             const query = e.target.value.toLowerCase();
             const links = document.querySelectorAll('.nav-btn');
             links.forEach(link => {
-                // Lenient filter: if empty, show all; otherwise show matches
                 if (query === "" || link.textContent.toLowerCase().includes(query)) {
                     link.style.display = 'block';
                 } else {
