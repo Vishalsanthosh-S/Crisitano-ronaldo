@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Importing Ink Brush Font -->
     <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap');
@@ -46,7 +47,8 @@
     </style>
 </head>
 <body>
-    <video autoplay muted loop playsinline style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -1;">
+    <!-- Added min-width and min-height to force full coverage -->
+    <video autoplay muted loop playsinline style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; min-width: 100%; min-height: 100%; object-fit: cover; z-index: -1;">
         <source src="enhanced_ronaldo.mp4" type="video/mp4">
     </video>
 
