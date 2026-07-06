@@ -21,15 +21,15 @@
             overflow: hidden; 
         }
 
-        /* 1st Border (Header) */
+        /* 1st Border Area (Header) */
         .header { 
             display: flex; justify-content: center; padding: 25px; gap: 15px; 
             border-bottom: 2px solid #d4af37; background: rgba(0,0,0,0.8); z-index: 2;
         }
 
-        /* 2nd Border (The Box for the video + content) */
+        /* 2nd Border Area (Main Content Box) */
         .main-content { 
-            position: relative; /* This confines the video to this specific box */
+            position: relative; 
             flex: 1; 
             display: flex; 
             padding: 50px; 
@@ -39,17 +39,16 @@
             overflow: hidden;
         }
 
-        /* The Video Clip */
+        /* The Video Clip - Attached directly to the bottom edge */
         .background-clip {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            object-position: center;
-            z-index: 0; /* Keeps the video behind the text */
+            object-position: bottom; /* This snaps the bottom of the video to the bottom of the page/container */
+            z-index: 0;
         }
 
-        /* Content Panels (must be on top of video) */
         .left-panel, .right-panel { z-index: 1; }
 
         .nav-btn { color: #d4af37; text-decoration: none; padding: 8px 16px; border: 1px solid #d4af37; text-transform: uppercase; font-size: 0.7rem; transition: 0.3s; }
@@ -92,5 +91,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('search').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const links = document.querySelectorAll('.nav-btn');
+            links.forEach(link => {
+                if (query === "" || link.textContent.toLowerCase().includes(query)) {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
