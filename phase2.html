@@ -8,6 +8,16 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@1,400&family=Road+Rage&display=swap');
 
+* {
+    transition: 
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        background-color 0.4s ease,
+        box-shadow 0.4s ease,
+        color 0.3s ease,
+        filter 0.4s ease;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -42,14 +52,12 @@ body, html {
     letter-spacing: 2px;
     cursor: pointer;
     text-decoration: none;
-    transition: all 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 214, 104, 0.6);
 }
 
 .green-master-btn:hover {
     background: #000;
     color: #00d668;
-    border-color: #00d668;
     box-shadow: 0 0 25px rgba(0, 214, 104, 0.8);
 }
 
@@ -70,9 +78,6 @@ body, html {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center 46%;
-
-    opacity: 0;
-    animation: borderFadeIn 0.9s ease-out forwards;
 }
 
 /* OVERLAY */
@@ -97,9 +102,6 @@ body, html {
     z-index: 3;
     display: flex;
     align-items: flex-end;
-
-    opacity: 0;
-    animation: popUpMain 0.9s cubic-bezier(0.19,1,0.22,1) forwards;
 }
 
 .text-column-left {
@@ -108,9 +110,6 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
-    opacity: 0;
-    animation: popUpSoft 0.8s ease-out 0.25s forwards;
 }
 
 .image-column-right {
@@ -127,9 +126,6 @@ body, html {
     max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 0 15px rgba(0, 214, 104, 0.6));
-
-    opacity: 0;
-    animation: popUpSoft 0.8s ease-out 0.45s forwards;
 }
 
 /* TEXT */
@@ -174,41 +170,12 @@ body, html {
     letter-spacing: 2px;
     cursor: pointer;
     text-decoration: none;
-    transition: all 0.2s ease;
 }
 
 .action-control-btn:hover {
     background: #00d668;
     color: #000000;
     box-shadow: 0 0 25px rgba(0, 214, 104, 0.5);
-}
-
-/* ANIMATIONS */
-@keyframes borderFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes popUpMain {
-    from {
-        opacity: 0;
-        transform: scale(0.92) translateZ(-80px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateZ(0);
-    }
-}
-
-@keyframes popUpSoft {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 </style>
 </head>
@@ -227,7 +194,7 @@ body, html {
     <div class="text-column-left">
         <h2 class="karuppu-style-header">SPORTING CP ASCENT</h2>
         <p class="elegant-narrative-text">
-            Leaving Madeira at just 12 years old for Lisbon, Cristiano faced immense homesickness while mastering his craft at the Alcochete academy. His explosion was historic—becoming the first player to play for Sporting's U-16, U-17, U-18, B-team, and first team all in a single season.
+            Leaving Madeira at just 12 years old for Lisbon, Cristiano faced immense homesickness while mastering his craft at the Alcochete academy.
         </p>
         <div class="navigation-row">
             <a class="action-control-btn" href="phase1.html">← ROOTS OF THE GOAT</a>
@@ -236,7 +203,7 @@ body, html {
     </div>
 
     <div class="image-column-right">
-        <img class="foreground-cutout" src="images-removebg-preview (1).png" alt="Sporting CP Cutout">
+        <img class="foreground-cutout" src="images-removebg-preview (1).png">
     </div>
 </div>
 
