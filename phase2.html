@@ -53,7 +53,7 @@ body, html {
     box-shadow: 0 0 25px rgba(0, 214, 104, 0.8);
 }
 
-/* BACKGROUND IMAGE CONTAINER */
+/* BACKGROUND IMAGE */
 .full-screen-bg {
     position: absolute;
     top: 2%;
@@ -78,10 +78,7 @@ body, html {
 /* OVERLAY */
 .video-dark-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.85) 30%,
@@ -89,22 +86,6 @@ body, html {
     );
     z-index: 2;
     pointer-events: none;
-}
-
-/* LOGO */
-.logo-left-bottom {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    z-index: 2;
-    opacity: 0.2;
-    max-width: 280px;
-    pointer-events: none;
-}
-
-.logo-left-bottom img {
-    width: 100%;
-    height: auto;
 }
 
 /* CONTENT */
@@ -116,6 +97,9 @@ body, html {
     z-index: 3;
     display: flex;
     align-items: flex-end;
+
+    opacity: 0;
+    animation: popUpMain 0.9s cubic-bezier(0.19,1,0.22,1) forwards;
 }
 
 .text-column-left {
@@ -124,6 +108,9 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    opacity: 0;
+    animation: popUpSoft 0.8s ease-out 0.25s forwards;
 }
 
 .image-column-right {
@@ -140,6 +127,9 @@ body, html {
     max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 0 15px rgba(0, 214, 104, 0.6));
+
+    opacity: 0;
+    animation: popUpSoft 0.8s ease-out 0.45s forwards;
 }
 
 /* TEXT */
@@ -193,15 +183,31 @@ body, html {
     box-shadow: 0 0 25px rgba(0, 214, 104, 0.5);
 }
 
-/* ANIMATION */
+/* ANIMATIONS */
 @keyframes borderFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popUpMain {
     from {
         opacity: 0;
-        box-shadow: 0 0 0 rgba(0,214,104,0);
+        transform: scale(0.92) translateZ(-80px);
     }
     to {
         opacity: 1;
-        box-shadow: 0 0 15px rgba(0,214,104,0.4);
+        transform: scale(1) translateZ(0);
+    }
+}
+
+@keyframes popUpSoft {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 </style>
@@ -211,9 +217,6 @@ body, html {
 
 <div class="full-screen-bg">
     <div class="video-dark-overlay"></div>
-    <div class="logo-left-bottom">
- 
-    </div>
 </div>
 
 <div class="menu-top-right">
@@ -224,7 +227,7 @@ body, html {
     <div class="text-column-left">
         <h2 class="karuppu-style-header">SPORTING CP ASCENT</h2>
         <p class="elegant-narrative-text">
-            Leaving Madeira at just 12 years old for Lisbon, Cristiano faced immense homesickness while mastering his craft at the Alcochete academy. His explosion was historic—becoming the first player to play for Sporting's U-16, U-17, U-18, B-team, and first team all in a single season. It culminated on August 6, 2003, when his dizzying step-overs dismantled Manchester United in an inaugural stadium friendly, forcing Sir Alex Ferguson to sign him on the spot.
+            Leaving Madeira at just 12 years old for Lisbon, Cristiano faced immense homesickness while mastering his craft at the Alcochete academy. His explosion was historic—becoming the first player to play for Sporting's U-16, U-17, U-18, B-team, and first team all in a single season.
         </p>
         <div class="navigation-row">
             <a class="action-control-btn" href="phase1.html">← ROOTS OF THE GOAT</a>
