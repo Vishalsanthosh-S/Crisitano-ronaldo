@@ -25,8 +25,8 @@ body, html {
 /* MENU BUTTON */
 .menu-top-right {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 45px;      /* moved down */
+    right: 45px;    /* moved left */
     z-index: 1000;
 }
 
@@ -53,7 +53,7 @@ body, html {
     box-shadow: 0 0 25px rgba(0, 214, 104, 0.8);
 }
 
-/* VIDEO CONTAINER — ONLY BORDER THINNED + FADE IN */
+/* VIDEO CONTAINER */
 .full-screen-bg {
     position: absolute;
     top: 2%;
@@ -62,15 +62,10 @@ body, html {
     height: 96%;
     z-index: 1;
     overflow: hidden;
-
-    /* ✅ ONLY VISUAL CHANGE */
     border: 1px solid #00d668;
-
     box-shadow: 0 0 15px rgba(0, 214, 104, 0.4);
     border-radius: 12px;
     background: #000;
-
-    /* ✅ SAFE FLASHY TRANSITION */
     opacity: 0;
     animation: borderFadeIn 0.9s ease-out forwards;
 }
@@ -113,7 +108,7 @@ body, html {
     height: auto;
 }
 
-/* CONTENT — UNTOUCHED */
+/* CONTENT */
 .content-overlap-wrapper {
     position: relative;
     width: 88vw;
@@ -139,8 +134,9 @@ body, html {
     align-items: flex-end;
 }
 
+/* SIDE IMAGE — REDUCED SIZE */
 .foreground-cutout {
-    height: 95%;
+    height: 85%; /* reduced from 95% */
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -198,7 +194,7 @@ body, html {
     box-shadow: 0 0 25px rgba(0, 214, 104, 0.5);
 }
 
-/* ✅ SAFE KEYFRAMES (NO SIZE / POSITION CHANGE) */
+/* SAFE ANIMATION */
 @keyframes borderFadeIn {
     from {
         opacity: 0;
