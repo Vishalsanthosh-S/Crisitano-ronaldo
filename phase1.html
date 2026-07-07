@@ -18,9 +18,10 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            perspective: 1200px;
+            perspective: 1200px; 
         }
 
+        /* TOP RIGHT MENU BLOCK */
         .menu-top-right {
             position: absolute;
             top: 30px;
@@ -43,23 +44,35 @@
             box-shadow: 0 0 15px rgba(241, 196, 15, 0.6);
         }
 
-        .full-screen-bg {
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
-                url('https://i.ytimg.com/vi/fUjg_yJcgg8/hqdefault.jpg') no-repeat center / cover;
-            z-index: 1;
+        .master-btn:hover {
+            background: #000;
+            color: #f1c40f;
+            border-color: #f1c40f;
+            box-shadow: 0 0 25px rgba(241, 196, 15, 0.8);
         }
 
+        /* BACKGROUND */
+        .full-screen-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), 
+                        url('https://i.ytimg.com/vi/fUjg_yJcgg8/hqdefault.jpg') no-repeat center center/cover;
+            z-index: 1;
+            animation: fadeInBg 1.5s ease-out forwards;
+        }
+
+        /* CONTENT */
         .content-overlap-wrapper {
             position: relative;
             width: 90vw;
             max-width: 1200px;
-            height: 85vh;
+            height: 85vh; 
             z-index: 2;
             display: flex;
-            align-items: flex-end;
+            align-items: flex-end; 
         }
 
         .image-column-left {
@@ -67,11 +80,16 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
+            height: 100%;
         }
 
         .foreground-cutout {
             height: 95%;
-            filter: drop-shadow(0 0 15px rgba(241,196,15,.7));
+            filter: drop-shadow(0 0 8px rgba(241, 196, 15, 0.8))
+                    drop-shadow(0 0 20px rgba(241, 196, 15, 0.4))
+                    drop-shadow(0 0 45px rgba(241, 196, 15, 0.2));
+            opacity: 0;
+            animation: shatterImage 1.4s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards;
         }
 
         .text-column-right {
@@ -80,33 +98,43 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            height: 100%;
         }
 
         .karuppu-style-header {
             font-family: 'Road Rage', sans-serif;
             font-size: 5rem;
-            color: #fff;
+            color: #ffffff;
             margin-bottom: 20px;
-            text-shadow: 4px 4px 0 #000;
+            text-shadow: 4px 4px 0px #000000;
             transform: skewX(-4deg) rotate(-1deg);
+            opacity: 0;
+            animation: shatterTitle 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
         }
 
         .elegant-narrative-text {
             font-family: 'Playfair Display', serif;
             font-size: 1.25rem;
             line-height: 1.9;
-            color: #fff;
+            color: #ffffff;
             font-style: italic;
             margin-bottom: 40px;
             max-width: 520px;
+            opacity: 0;
+            animation: shatterText 1.6s cubic-bezier(0.19, 1, 0.22, 1) 0.7s forwards;
+
+            /* TEXT CONTAINMENT */
             max-height: 45vh;
             overflow-y: auto;
             padding-right: 10px;
+            box-sizing: border-box;
         }
 
         .navigation-row {
             display: flex;
             gap: 20px;
+            opacity: 0;
+            animation: assembleButtons 1s ease-out 1s forwards;
         }
 
         .action-control-btn {
@@ -118,37 +146,56 @@
             text-transform: uppercase;
             font-size: 0.8rem;
             letter-spacing: 2px;
+            cursor: pointer;
             text-decoration: none;
         }
 
-        /* 🔥 MOBILE FIX — ONLY WHAT IS NEEDED */
+        .action-control-btn:hover {
+            background: #f1c40f;
+            color: #000;
+            box-shadow: 0 0 25px rgba(241, 196, 15, 0.4);
+        }
+
+        @keyframes fadeInBg { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes shatterImage { from { opacity: 0; transform: translateX(-150px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes shatterTitle { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; } }
+        @keyframes shatterText { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; } }
+        @keyframes assembleButtons { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* =========================
+           MOBILE CENTER FIX (ONLY ADD)
+        ========================== */
         @media (max-width: 768px) {
 
             body, html {
                 overflow-y: auto;
-                align-items: flex-start;
             }
 
             .content-overlap-wrapper {
                 flex-direction: column;
                 height: auto;
-                padding-top: 120px;
+                min-height: 100vh;
+                align-items: center;
+                justify-content: center;   /* 🔥 vertical center */
+                padding: 80px 0 40px;
                 gap: 30px;
             }
 
             .image-column-left {
-                order: 1;
+                align-items: center;
+                justify-content: center;
+                height: auto;
             }
 
             .foreground-cutout {
                 height: 45vh;
-                max-width: 90%;
+                max-height: 380px;
             }
 
             .text-column-right {
-                order: 2;
-                padding: 0 20px 40px;
-                justify-content: flex-start;
+                padding: 0 20px;
+                height: auto;
+                justify-content: center;   /* 🔥 center text block */
             }
 
             .karuppu-style-header {
@@ -156,13 +203,11 @@
             }
 
             .elegant-narrative-text {
-                max-height: none;
-                font-size: 1.05rem;
+                max-height: 40vh;
             }
 
             .navigation-row {
-                flex-direction: column;
-                gap: 15px;
+                justify-content: flex-start;
             }
         }
     </style>
@@ -170,39 +215,34 @@
 
 <body>
 
-<div class="full-screen-bg"></div>
+    <div class="full-screen-bg"></div>
 
-<div class="menu-top-right">
-    <a class="master-btn" href="menu.html">MENU</a>
-</div>
-
-<div class="content-overlap-wrapper">
-
-    <div class="image-column-left">
-        <img class="foreground-cutout" src="images-removebg-preview.png">
+    <div class="menu-top-right">
+        <a class="master-btn" href="menu.html">MENU</a>
     </div>
 
-    <div class="text-column-right">
-        <h2 class="karuppu-style-header">THE ROOTS OF A GOAT</h2>
+    <div class="content-overlap-wrapper">
+        <div class="image-column-left">
+            <img class="foreground-cutout" src="images-removebg-preview.png">
+        </div>
 
-        <p class="elegant-narrative-text">
-            Cristiano Ronaldo dos Santos Aveiro was born in the poverty-stricken
-            neighborhood of Santo António in Funchal, Madeira.
-            His football journey began on concrete streets and steep hills.
+        <div class="text-column-right">
+            <h2 class="karuppu-style-header">THE ROOTS OF A GOAT</h2>
+            <p class="elegant-narrative-text">
+                Cristiano Ronaldo dos Santos Aveiro was born in the poverty-stricken neighborhood of Santo António in Funchal, Madeira.
+                His playground was concrete patches and steep hills.
 
-            Andorinha (1992–1995): Joined at age seven, coached indirectly by his
-            father who worked as kit man.
+                Andorinha (1992–1995): Joined at age seven where his father worked as a kit man.
 
-            Nacional (1995–1997): Rapid growth, captaincy, and early recognition.
-        </p>
+                Nacional (1995–1997): Developed rapidly and captained youth sides.
+            </p>
 
-        <div class="navigation-row">
-            <a class="action-control-btn" href="index.html">[ Home ]</a>
-            <a class="action-control-btn" href="phase2.html">Sporting CP →</a>
+            <div class="navigation-row">
+                <a class="action-control-btn" href="index.html">[ Home ]</a>
+                <a class="action-control-btn" href="phase2.html">Sporting CP →</a>
+            </div>
         </div>
     </div>
-
-</div>
 
 </body>
 </html>
